@@ -9,17 +9,22 @@ data class MatchEntity (
 
     @ColumnInfo(name = "matchName")
     var MatchName: String = "N/A",
+
     @ColumnInfo(name = "teamA")
     var TeamA: String = "N/A",
+
     @ColumnInfo(name = "scoreTeamA")
     var ScoreTeamA: Int = 0,
+
     @ColumnInfo(name = "teamB")
     var TeamB: String = "N/A",
+
     @ColumnInfo(name = "scoreTeamB")
     var ScoreTeamB: Int = 0,
+
     @ColumnInfo(name = "finished")
     var Finished : Boolean = false
 ){
     @PrimaryKey(autoGenerate = true)
-    val _id : Int = 0
+    var id_match : Int = 0
 }

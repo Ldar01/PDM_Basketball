@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+android:padding="@dimen/padding"
+android:layout_margin="@dimen/margin_tv">
 
     <TextView
             android:id="@+id/tv_title_match"
@@ -11,7 +13,9 @@
             android:text="Hola"
             android:layout_margin="@dimen/margin_tv"
             android:layout_gravity="center"
-            android:layout_width="180dp"
-            android:layout_height="200dp" />
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+    android:background="#FFD700"
+    android:textColor="#000"/>
 
 </androidx.cardview.widget.CardView>

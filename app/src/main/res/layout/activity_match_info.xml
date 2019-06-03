@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.pdm_parcial1.Activities.MatchInfoActivity"
+android:orientation="vertical"
+android:gravity="center">
+
+    <TextView
+            android:id="@+id/tv_winner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WINNER!"/>
+
+    <TextView
+            android:id="@+id/tv_team_winner"
+            android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="@dimen/small_gap"
+                  android:layout_weight="1">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/medium_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/tv_name_team_A_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/team_a"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_score_team_a_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_gap"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="@dimen/big_text" />
+
+        </LinearLayout>
+
+        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/medium_gap"
+                android:layout_marginTop="@dimen/medium_gap"
+                android:layout_marginRight="@dimen/medium_gap"
+                android:background="#D8D4D4" />
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/medium_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/tv_name_team_B_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/team_b"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_score_team_b_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_gap"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="@dimen/big_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
