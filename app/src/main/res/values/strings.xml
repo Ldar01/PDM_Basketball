@@ -3,4 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="team_b">Team B</string>
+    <string name="team_a">Team A</string>
+    <string name="action_3_points">+3 POINTS</string>
+    <string name="action_2_points">+2 POINTS</string>
+    <string name="action_free_throw">FREE THROW</string>
+    <string name="action_reset">reset</string>
+    <string name="nuevo_partido">New Match</string>
+    <string name="team_name">Team Name</string>
 </resources>

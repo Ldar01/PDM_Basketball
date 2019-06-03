@@ -1,61 +1,27 @@
 package com.example.pdm_parcial1.ViewModel
 
-import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.pdm_parcial1.Room.Daos.MatchDao
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.pdm_parcial1.Repository.MatchRepository
 import com.example.pdm_parcial1.Room.Entities.MatchEntity
-import kotlinx.coroutines.CoroutineScope
+import com.example.pdm_parcial1.Room.RoomDB
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [MatchEntity::class],version = 1, exportSchema = false)
-public abstract class RoomDB: RoomDatabase(){
-    abstract fun matchDao() : MatchDao
+class MatchViewModel(application: Application) : AndroidViewModel(application){
+    private val repository : MatchRepository
 
-    companion object{
-        @Volatile
-        private var INSTANCE : RoomDB? = null
-
-        fun getInstance(
-            context: Context,
-            scope: CoroutineScope
-        ): RoomDB{
-            val tempInstance = INSTANCE
-            if(tempInstance != null){
-                return tempInstance
-            }
-
-            synchronized(this){
-                val instance = Room
-                    .databaseBuilder(context, RoomDB::class.java, "Match_DB")
-                    .build()
-                INSTANCE = instance
-                return instance
-            }
-        }
+    init {
+        val matchDao = RoomDB.getInstance(application,viewModelScope).matchDao()
+        repository = MatchRepository(matchDao)
     }
 
-    private class DataBaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback() {
-        override fun onOpen(db: SupportSQLiteDatabase) {
-            super.onOpen(db)
-            INSTANCE?.let { database ->
-                scope.launch(Dispatchers.IO) {
-                    populateDatabase( database.matchDao() )
-                }
-            }
-        }
-        suspend fun populateDatabase(
-            matchDao: MatchDao
-        ){
-            var match1 = MatchEntity(
-                "Partido Liceo vs Chaleco",
-                "Liceo",
-                20,
-                "Chaleco",
-                18)
-        }
+    fun allMatches() = repository.allMatches()
+    fun getMatchByName(name: String) = repository.getMatchkByName(name)
+    fun nuke() = repository.nuke()
+
+    fun insertMatch(match : MatchEntity) = viewModelScope.launch ( Dispatchers.IO ){
+        repository.insertMatch(match)
     }
 }

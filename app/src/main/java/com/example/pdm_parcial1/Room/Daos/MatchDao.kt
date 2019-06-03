@@ -19,4 +19,6 @@ interface MatchDao {
     @Query("DELETE FROM MatchTable")
     fun nuke()
 
+    @Query("SELECT * FROM MatchTable WHERE matchName = :name")
+    fun getByName(name: String) : LiveData<MatchEntity>
 }
