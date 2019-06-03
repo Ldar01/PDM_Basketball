@@ -33,10 +33,7 @@ class NewMatchActivity : AppCompatActivity() {
 
             matchViewModel.insertMatch(match)
 
-            val extras = Bundle()
-            extras.putString(Constants.TEXT_KEY_MATCH,et_match_name.toString())
-            startActivity(Intent(this, MatchActivity::class.java).putExtras(extras))
-
+            startActivity(Intent(this, MainActivity::class.java))
 
         }
     }
